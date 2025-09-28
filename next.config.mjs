@@ -12,7 +12,8 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    optimizePackageImports: ['three', 'framer-motion', 'lucide-react']
+    optimizePackageImports: ['three', 'framer-motion', 'lucide-react'],
+    serverComponentsExternalPackages: ['mongoose']
   },
   // Serve Unity WebGL compressed assets with correct headers
   async headers() {

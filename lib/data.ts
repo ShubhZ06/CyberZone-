@@ -1,6 +1,6 @@
-import { modules } from "../mock-data/modules.json"
-import { labs } from "../mock-data/labs.json"
-import { userProgress } from "../mock-data/progress.json"
+import modulesData from "../mock-data/modules.json"
+import labsData from "../mock-data/labs.json"
+import progressData from "../mock-data/progress.json"
 
 export interface Module {
   id: string
@@ -24,7 +24,12 @@ export interface Lab {
   estimatedTime: string
   objectives: string[]
   completed: boolean
+  comingSoon?: boolean
 }
+
+const { modules } = modulesData as { modules: Module[] }
+const { labs } = labsData as { labs: Lab[] }
+const { userProgress } = progressData as { userProgress: Record<string, any> }
 
 export const mockData = {
   getModules: (): Module[] => modules,

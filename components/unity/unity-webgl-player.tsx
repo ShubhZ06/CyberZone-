@@ -66,6 +66,7 @@ export function UnityWebGLPlayer({
 
   const loadUnity = useCallback(async () => {
     if (!canvasRef.current) return
+    if (isLoading || isLoaded) return
 
     setIsLoading(true)
     setError(null)

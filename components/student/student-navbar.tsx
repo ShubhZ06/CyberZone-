@@ -95,6 +95,18 @@ export function StudentNavbar() {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            {/* Visible Logout (desktop) */}
+            <Button
+              onClick={handleLogout}
+              variant="outline"
+              size="sm"
+              className="hidden md:inline-flex"
+              aria-label="Log out"
+            >
+              <LogOut className="h-4 w-4" />
+              <span className="ml-1">Logout</span>
+            </Button>
+
             {/* Mobile menu button */}
             <Button
               variant="ghost"

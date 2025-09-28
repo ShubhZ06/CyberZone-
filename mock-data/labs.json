@@ -2,59 +2,65 @@
   "labs": [
     {
       "id": "1",
-      "title": "SQL Injection Challenge",
-      "description": "Practice identifying and exploiting SQL injection vulnerabilities in a safe environment.",
-      "webglUrl": "https://example.com/sql-injection-lab",
+      "title": "Classical Encryption Techniques",
+      "description": "Level 1: Playfair cipher. Learn the rules, build the key square, and encrypt/decrypt messages. Future levels cover Caesar, Vigenère, and more.",
+      "webglUrl": "local://unity/lab-1",
       "difficulty": "Beginner",
-      "category": "Web Security",
+      "category": "Cryptography",
       "estimatedTime": "30 minutes",
       "objectives": [
-        "Identify SQL injection points",
-        "Extract database information",
-        "Understand prevention techniques"
+        "Construct a Playfair key square",
+        "Encrypt and decrypt messages using Playfair",
+        "Identify weaknesses and prepare for Caesar/Vigenère in next levels"
       ],
       "completed": true
     },
     {
       "id": "2",
-      "title": "XSS Attack Simulation",
-      "description": "Learn to identify and exploit Cross-Site Scripting vulnerabilities.",
-      "webglUrl": "https://example.com/xss-lab",
+      "title": "Phishing Identification",
+      "description": "Level 1: Scam email identification. Spot red flags in sender, content, links, and attachments. Future levels cover links, webpages, and smishing.",
+      "webglUrl": "local://unity/lab-2",
       "difficulty": "Beginner",
-      "category": "Web Security",
+      "category": "Social Engineering",
       "estimatedTime": "25 minutes",
-      "objectives": ["Find XSS vulnerabilities", "Craft malicious payloads", "Implement XSS protection"],
+      "objectives": [
+        "Identify common scam‑email indicators",
+        "Distinguish legitimate vs spoofed senders",
+        "Practice safe verification before acting"
+      ],
       "completed": true
     },
     {
       "id": "3",
       "title": "Network Penetration Testing",
-      "description": "Simulate network attacks and learn penetration testing methodologies.",
-      "webglUrl": "https://example.com/network-pentest-lab",
+      "description": "Advanced, multi‑stage simulation. Coming soon.",
+      "webglUrl": "",
       "difficulty": "Advanced",
       "category": "Network Security",
       "estimatedTime": "60 minutes",
       "objectives": [
-        "Perform network reconnaissance",
-        "Exploit network vulnerabilities",
-        "Document findings and recommendations"
+        "Reconnaissance",
+        "Vulnerability exploitation",
+        "Reporting and remediation"
       ],
-      "completed": false
+      "completed": false,
+      "comingSoon": true
     },
     {
       "id": "4",
       "title": "Cryptographic Attacks",
-      "description": "Understand common cryptographic attacks and how to defend against them.",
-      "webglUrl": "https://example.com/crypto-attacks-lab",
+      "description": "Apply and break cryptographic primitives in practice. Coming soon.",
+      "webglUrl": "",
       "difficulty": "Advanced",
       "category": "Cryptography",
       "estimatedTime": "45 minutes",
       "objectives": [
-        "Analyze weak encryption implementations",
-        "Perform cryptographic attacks",
-        "Implement secure cryptographic solutions"
+        "Analyze weak implementations",
+        "Perform common crypto attacks",
+        "Implement secure alternatives"
       ],
-      "completed": false
+      "completed": false,
+      "comingSoon": true
     }
   ]
 }

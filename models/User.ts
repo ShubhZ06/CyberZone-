@@ -88,8 +88,6 @@ const userSchema = new Schema<IUser>({
   }
 })
 
-// Create indexes
-userSchema.index({ email: 1 })
 
 // Export the model
 const User = mongoose.models.User || mongoose.model<IUser>('User', userSchema)

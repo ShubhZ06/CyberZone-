@@ -4,10 +4,9 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Gamepad2, CheckCircle, Target, Award } from "lucide-react"
+import { ArrowLeft, Gamepad2, Target, Clock, Shield } from "lucide-react"
 import Link from "next/link"
 import { mockData, type Lab } from "@/lib/data"
-import { mockAuth } from "@/lib/auth"
 import { motion } from "framer-motion"
 import { UnityWebGLPlayer } from "@/components/unity/unity-webgl-player"
 
@@ -17,29 +16,15 @@ interface LabViewerProps {
 
 export function LabViewer({ labId }: LabViewerProps) {
   const [lab, setLab] = useState<Lab | null>(null)
-  const [isCompleted, setIsCompleted] = useState(false)
-  const [isLabLoaded, setIsLabLoaded] = useState(false)
 
   useEffect(() => {
     const labs = mockData.getLabs()
     const foundLab = labs.find((l) => l.id === labId)
     if (foundLab) {
       setLab(foundLab)
-      setIsCompleted(foundLab.completed)
     }
   }, [labId])
 
-  const handleMarkComplete = () => {
-    const user = mockAuth.getCurrentUser()
-    if (user && lab) {
-      mockData.updateLabProgress(user.id, lab.id)
-      setIsCompleted(true)
-    }
-  }
-
-  const handleLabLoad = () => {
-    setIsLabLoaded(true)
-  }
 
   if (!lab) {
     return (
@@ -82,9 +67,8 @@ export function LabViewer({ labId }: LabViewerProps) {
               </div>
               <Badge variant={lab.difficulty === "Beginner" ? "secondary" : "outline"}>{lab.difficulty}</Badge>
               <Badge variant="outline">{lab.category}</Badge>
-              {isCompleted && (
+              {lab.completed && (
                 <Badge className="bg-secondary text-secondary-foreground">
-                  <CheckCircle className="w-3 h-3 mr-1" />
                   Completed
                 </Badge>
               )}
@@ -101,16 +85,23 @@ export function LabViewer({ labId }: LabViewerProps) {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="lg:col-span-2"
         >
-          <UnityWebGLPlayer
-            gameTitle={lab.title}
-            buildPath={`lab-${lab.id}`}
-            height="600px"
-            onGameLoaded={() => setIsLabLoaded(true)}
-            onGameError={(error) => {
-              console.log("[v0] Unity game load error:", error)
-              setIsLabLoaded(false)
-            }}
-          />
+          {lab.comingSoon ? (
+            <Card className="bg-card/50 backdrop-blur-sm border-border/50 h-full flex items-center justify-center">
+              <div className="text-center py-16">
+                <p className="text-2xl font-semibold mb-2">{lab.title}</p>
+                <p className="text-muted-foreground mb-6">This lab is coming soon. Stay tuned!</p>
+                <Button asChild>
+                  <Link href="/student/labs">Back to Labs</Link>
+                </Button>
+              </div>
+            </Card>
+          ) : (
+            <UnityWebGLPlayer
+              gameTitle={lab.title}
+              buildPath={`lab-${lab.id}`}
+              height="600px"
+            />
+          )}
         </motion.div>
 
         {/* Lab Info */}
@@ -118,8 +109,27 @@ export function LabViewer({ labId }: LabViewerProps) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="space-y-6"
+          className="space-y-6 lg:sticky lg:top-24 self-start"
         >
+          {/* Overview */}
+          <Card className="bg-card/50 backdrop-blur-sm border-border/50">
+            <CardHeader>
+              <CardTitle className="text-sm font-medium">Overview</CardTitle>
+              <CardDescription>Key details for this lab</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline" className="flex items-center gap-1">
+                  <Clock className="w-3 h-3" /> {lab.estimatedTime}
+                </Badge>
+                <Badge variant={lab.difficulty === "Beginner" ? "secondary" : "outline"} className="flex items-center gap-1">
+                  <Shield className="w-3 h-3" /> {lab.difficulty}
+                </Badge>
+                <Badge variant="outline">{lab.category}</Badge>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Objectives */}
           <Card className="bg-card/50 backdrop-blur-sm border-border/50 glow-blue">
             <CardHeader>
@@ -140,35 +150,6 @@ export function LabViewer({ labId }: LabViewerProps) {
                   </li>
                 ))}
               </ul>
-            </CardContent>
-          </Card>
-
-          {/* Completion */}
-          <Card className="bg-card/50 backdrop-blur-sm border-border/50 glow-purple">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Award className="w-5 h-5 text-primary" />
-                <span>Complete Lab</span>
-              </CardTitle>
-              <CardDescription>Mark this lab as completed when you finish all objectives</CardDescription>
-            </CardHeader>
-            <CardContent>
-              {!isCompleted ? (
-                <Button
-                  onClick={handleMarkComplete}
-                  className="w-full bg-gradient-to-r from-secondary to-accent hover:from-secondary/80 hover:to-accent/80"
-                  disabled={!isLabLoaded}
-                >
-                  <CheckCircle className="w-4 h-4 mr-2" />
-                  Mark as Complete
-                </Button>
-              ) : (
-                <div className="text-center py-4">
-                  <CheckCircle className="w-12 h-12 text-secondary mx-auto mb-2" />
-                  <p className="text-foreground font-medium">Lab Completed!</p>
-                  <p className="text-sm text-muted-foreground">Excellent work on this cybersecurity challenge.</p>
-                </div>
-              )}
             </CardContent>
           </Card>
 

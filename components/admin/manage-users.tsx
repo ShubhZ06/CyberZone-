@@ -8,11 +8,12 @@ import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Users, Search, UserCheck, Edit, MoreHorizontal } from "lucide-react"
-import { users } from "../../../mock-data/users.json"
+import usersData from "@/mock-data/users.json"
 import { motion } from "framer-motion"
 
 export function ManageUsers() {
   const [searchTerm, setSearchTerm] = useState("")
+  const { users } = usersData as { users: Array<any> }
 
   const filteredUsers = users.filter(
     (user) =>

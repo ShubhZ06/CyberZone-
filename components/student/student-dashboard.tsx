@@ -10,6 +10,7 @@ import { mockAuth } from "@/lib/auth"
 import { mockData } from "@/lib/data"
 import { motion } from "framer-motion"
 import { HexCard } from "@/components/HexCard"
+import { ChatFab } from "@/components/chat/chat-fab"
 
 export function StudentDashboard() {
   const user = mockAuth.getCurrentUser()
@@ -241,6 +242,7 @@ export function StudentDashboard() {
           </CardContent>
         </Card>
       </motion.div>
+      <ChatFab />
     </div>
   )
 }

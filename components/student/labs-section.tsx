@@ -121,6 +121,9 @@ export function LabsSection() {
                   <div className="flex-1">
                     <CardTitle className="text-lg font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
                       {lab.title}
+                      {lab.comingSoon && (
+                        <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground border">Coming Soon</span>
+                      )}
                     </CardTitle>
                     <CardDescription className="text-sm text-muted-foreground line-clamp-2">
                       {lab.description}
@@ -158,20 +161,26 @@ export function LabsSection() {
                   <Badge variant="outline" className="text-xs">
                     {lab.category}
                   </Badge>
-                  <Button
-                    asChild
-                    size="sm"
-                    className={
-                      lab.completed
-                        ? "bg-muted text-muted-foreground hover:bg-muted/80"
-                        : "bg-gradient-to-r from-secondary to-accent hover:from-secondary/80 hover:to-accent/80 text-white"
-                    }
-                  >
-                    <Link href={`/student/labs/${lab.id}`}>
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      {lab.completed ? "Replay" : "Start Lab"}
-                    </Link>
-                  </Button>
+                  {lab.comingSoon ? (
+                    <Button size="sm" variant="outline" disabled>
+                      Coming Soon
+                    </Button>
+                  ) : (
+                    <Button
+                      asChild
+                      size="sm"
+                      className={
+                        lab.completed
+                          ? "bg-muted text-muted-foreground hover:bg-muted/80"
+                          : "bg-gradient-to-r from-secondary to-accent hover:from-secondary/80 hover:to-accent/80 text-white"
+                      }
+                    >
+                      <Link href={`/student/labs/${lab.id}`}>
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        Play
+                      </Link>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
