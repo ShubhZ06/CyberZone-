@@ -1,0 +1,60 @@
+{
+  "labs": [
+    {
+      "id": "1",
+      "title": "SQL Injection Challenge",
+      "description": "Practice identifying and exploiting SQL injection vulnerabilities in a safe environment.",
+      "webglUrl": "https://example.com/sql-injection-lab",
+      "difficulty": "Beginner",
+      "category": "Web Security",
+      "estimatedTime": "30 minutes",
+      "objectives": [
+        "Identify SQL injection points",
+        "Extract database information",
+        "Understand prevention techniques"
+      ],
+      "completed": true
+    },
+    {
+      "id": "2",
+      "title": "XSS Attack Simulation",
+      "description": "Learn to identify and exploit Cross-Site Scripting vulnerabilities.",
+      "webglUrl": "https://example.com/xss-lab",
+      "difficulty": "Beginner",
+      "category": "Web Security",
+      "estimatedTime": "25 minutes",
+      "objectives": ["Find XSS vulnerabilities", "Craft malicious payloads", "Implement XSS protection"],
+      "completed": true
+    },
+    {
+      "id": "3",
+      "title": "Network Penetration Testing",
+      "description": "Simulate network attacks and learn penetration testing methodologies.",
+      "webglUrl": "https://example.com/network-pentest-lab",
+      "difficulty": "Advanced",
+      "category": "Network Security",
+      "estimatedTime": "60 minutes",
+      "objectives": [
+        "Perform network reconnaissance",
+        "Exploit network vulnerabilities",
+        "Document findings and recommendations"
+      ],
+      "completed": false
+    },
+    {
+      "id": "4",
+      "title": "Cryptographic Attacks",
+      "description": "Understand common cryptographic attacks and how to defend against them.",
+      "webglUrl": "https://example.com/crypto-attacks-lab",
+      "difficulty": "Advanced",
+      "category": "Cryptography",
+      "estimatedTime": "45 minutes",
+      "objectives": [
+        "Analyze weak encryption implementations",
+        "Perform cryptographic attacks",
+        "Implement secure cryptographic solutions"
+      ],
+      "completed": false
+    }
+  ]
+}

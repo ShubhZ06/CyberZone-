@@ -1,0 +1,48 @@
+{
+  "modules": [
+    {
+      "id": "1",
+      "title": "Introduction to Cybersecurity",
+      "description": "Learn the fundamentals of cybersecurity, threat landscapes, and defense strategies.",
+      "videoUrl": "https://www.youtube.com/embed/inWWhr5tnEA",
+      "duration": "45 minutes",
+      "difficulty": "Beginner",
+      "category": "Fundamentals",
+      "content": "This module covers the basic principles of cybersecurity including CIA triad, threat actors, attack vectors, and fundamental defense mechanisms. You'll learn about different types of cyber threats and how organizations protect themselves.",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "title": "Web Application Security",
+      "description": "Understand common web vulnerabilities and how to secure web applications.",
+      "videoUrl": "https://www.youtube.com/embed/WtHnT73NaaQ",
+      "duration": "60 minutes",
+      "difficulty": "Intermediate",
+      "category": "Web Security",
+      "content": "Deep dive into OWASP Top 10 vulnerabilities, secure coding practices, input validation, authentication mechanisms, and session management. Learn how to identify and mitigate common web application security flaws.",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "title": "Network Security Fundamentals",
+      "description": "Explore network protocols, firewalls, and intrusion detection systems.",
+      "videoUrl": "https://www.youtube.com/embed/qiQR5rTSshw",
+      "duration": "55 minutes",
+      "difficulty": "Intermediate",
+      "category": "Network Security",
+      "content": "Learn about network architecture security, TCP/IP security, VPNs, firewalls, IDS/IPS systems, and network monitoring techniques. Understand how to secure network infrastructure and detect malicious activities.",
+      "completed": false
+    },
+    {
+      "id": "4",
+      "title": "Cryptography Essentials",
+      "description": "Master encryption, hashing, and digital signatures for data protection.",
+      "videoUrl": "https://www.youtube.com/embed/jhXCTbFnK8o",
+      "duration": "70 minutes",
+      "difficulty": "Advanced",
+      "category": "Cryptography",
+      "content": "Comprehensive coverage of symmetric and asymmetric encryption, hash functions, digital signatures, PKI, and cryptographic protocols. Learn how to implement and use cryptography effectively in security systems.",
+      "completed": false
+    }
+  ]
+}
